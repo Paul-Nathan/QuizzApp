@@ -14,7 +14,7 @@ export default function main(){
     return(
         <NavigationContainer>
             <Stack.Navigator screenOptions={{
-              headerShown: true
+              headerShown: false
             }}>
 
                <Stack.Screen name="HomeScreen" component={HomeScreen} />
