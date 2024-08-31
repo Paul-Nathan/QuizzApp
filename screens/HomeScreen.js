@@ -7,10 +7,12 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={()=>{}}
+          onPress={()=>{
+            this.props.navigation.navigate("QuizScreen")
+          }}
           style={styles.button}
         >
-            
+
           <Text style={styles.buttonText}>Start Quiz</Text>
 
         </TouchableOpacity>
