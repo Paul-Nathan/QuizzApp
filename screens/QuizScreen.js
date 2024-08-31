@@ -66,9 +66,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#328fa8',
   },
-  questionContainer: {},
-  question: {},
-  answerContainer: {},
-  button: {},
-  answerText: {}
+  questionContainer: {
+    marginHorizontal:30,
+    marginVertical:20,
+  },
+  question: {
+    fontSize: 30,
+    color:"#fff",
+    textAlign: "center"
+  },
+  answerContainer: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+  button: {
+    backgroundColor:"#254c8a",
+    padding:20,
+    marginVertical: 5,
+    borderRadius: 8
+  },
+  answerText: {
+    fontSize: 18,
+    color:"#fff",
+
+  }
 });
