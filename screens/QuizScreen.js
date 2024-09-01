@@ -6,6 +6,12 @@ const apiURL = "https://opentdb.com/api.php?amount=10&category=18&type=multiple"
 
 export default class QuizScreen extends React.Component {
 
+    state ={
+      currentQuestion: 0,
+      isLoaded: false,
+      question: []
+    }
+
     componentDidMount() {
         this.fetchQuestion()
     }
@@ -15,7 +21,11 @@ export default class QuizScreen extends React.Component {
         .then(result=>{
 
             result.json().then(resultJSON=>{
-                console.log(resultJSON)
+                //console.log(resultJSON)
+                this.setState({
+                  isLoaded: true,
+                  question: resultJSON
+                })
             })
 
         })
