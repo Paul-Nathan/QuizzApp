@@ -24,7 +24,7 @@ export default class QuizScreen extends React.Component {
                 //console.log(resultJSON)
                 this.setState({
                   isLoaded: true,
-                  question: resultJSON
+                  question: resultJSON.results
                 })
             })
 
@@ -33,41 +33,51 @@ export default class QuizScreen extends React.Component {
     }
 
   render() {
-    return(
-      <ScrollView style={styles.container}>
-        
-        <View style={styles.questionContainer}>
-
-            <Text style={styles.question}>
-
-                Q. Sample question will be here
-
-            </Text>
-
+    if(this.state.isLoaded){
+      return(
+        <ScrollView style={styles.container}>
+          
+          <View style={styles.questionContainer}>
+  
+              <Text style={styles.question}>
+  
+                  Q. {
+                    this.state.question[this.state.currentQuestion].question
+                  }
+  
+              </Text>
+  
+          </View>
+  
+          <View style={styles.answerComtainer}>
+  
+              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+                  <Text style={styles.answerText}>Answer 1</Text>
+              </TouchableOpacity>
+  
+              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+                  <Text style={styles.answerText}>Answer 2</Text>
+              </TouchableOpacity>
+  
+              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+                  <Text style={styles.answerText}>Answer 3</Text>
+              </TouchableOpacity>
+  
+              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+                  <Text style={styles.answerText}>Answer 4</Text>
+              </TouchableOpacity>
+  
+          </View>
+          
+        </ScrollView>
+      );
+    } else {
+      return(
+        <View style={styles.container}>
+          
         </View>
-
-        <View style={styles.answerComtainer}>
-
-            <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                <Text style={styles.answerText}>Answer 1</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                <Text style={styles.answerText}>Answer 2</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                <Text style={styles.answerText}>Answer 3</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                <Text style={styles.answerText}>Answer 4</Text>
-            </TouchableOpacity>
-
-        </View>
-        
-      </ScrollView>
-    );
+      );
+    }
   }
 }
 
