@@ -10,7 +10,8 @@ export default class QuizScreen extends React.Component {
       currentQuestion: 0,
       isLoaded: false,
       question: [],
-      options: []
+      options: [],
+      correctAnswer:""
     }
 
     componentDidMount() {
@@ -33,7 +34,8 @@ export default class QuizScreen extends React.Component {
                 this.setState({
                   isLoaded: true,
                   question: resultJSON.results,
-                  options: options
+                  options: options,
+                  correctAnswer: correctAnswer,
                 })
             })
 
