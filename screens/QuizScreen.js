@@ -59,13 +59,13 @@ export default class QuizScreen extends React.Component {
 
         // change question
         let currentQuestion = this.state.currentQuestion
-        if(currentQuestion <= this.state.questions.length){
+        if(currentQuestion <= this.state.question.length){
           
           currentQuestion += 1
 
-          const options = resultJSON.results[currentQuestion].incorrect_answers;
+          const options = this.state.question[currentQuestion].incorrect_answers;
 
-          const correctAnswer = resultJSON.results[currentQuestion].correct_answer;
+          const correctAnswer = this.state.question[currentQuestion].correct_answer;
 
           this.setState({
             currentQuestion,
