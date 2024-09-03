@@ -11,7 +11,8 @@ export default class QuizScreen extends React.Component {
       isLoaded: false,
       question: [],
       options: [],
-      correctAnswer:""
+      correctAnswer:"",
+      score: 0
     }
 
     componentDidMount() {
@@ -46,6 +47,12 @@ export default class QuizScreen extends React.Component {
     checkAnswer(selectedAnswer) {
         if(this.state.correctAnswer == selectedAnswer) {
           console.log("It's correct")
+
+          const score = this.state.score
+          score+=1
+          this.setState({
+            score
+          })
         }else{
           console.log("It's not correct")
         }
