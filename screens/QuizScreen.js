@@ -43,6 +43,14 @@ export default class QuizScreen extends React.Component {
         .catch(error=>console.log(error))
     }
 
+    checkAnswer(selectedAnswer) {
+        if(this.state.correctAnswer == selectAnswer) {
+          console.log("It's correct")
+        }else{
+          console.log("It's not correct")
+        }
+    }
+
   render() {
     if(this.state.isLoaded){
       return(
