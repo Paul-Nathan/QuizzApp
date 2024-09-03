@@ -30,8 +30,6 @@ export default class QuizScreen extends React.Component {
 
                 options.push(correctAnswer) 
 
-                console.log(options)
-
                 this.setState({
                   isLoaded: true,
                   question: resultJSON.results,
@@ -63,19 +61,27 @@ export default class QuizScreen extends React.Component {
           <View style={styles.answerComtainer}>
   
               <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                  <Text style={styles.answerText}>Answer 1</Text>
+                  <Text style={styles.answerText}>
+                    {this.state.options[0]}
+                  </Text>
               </TouchableOpacity>
   
               <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                  <Text style={styles.answerText}>Answer 2</Text>
+                  <Text style={styles.answerText}>
+                    {this.state.options[1]}
+                  </Text>
               </TouchableOpacity>
   
               <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                  <Text style={styles.answerText}>Answer 3</Text>
+                  <Text style={styles.answerText}>
+                  {this.state.options[2]}
+                  </Text>
               </TouchableOpacity>
   
               <TouchableOpacity onPress={()=>{}} style={styles.button}> 
-                  <Text style={styles.answerText}>Answer 4</Text>
+                  <Text style={styles.answerText}>
+                  {this.state.options[3]}
+                  </Text>
               </TouchableOpacity>
   
           </View>
