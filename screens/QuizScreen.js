@@ -44,7 +44,7 @@ export default class QuizScreen extends React.Component {
     }
 
     checkAnswer(selectedAnswer) {
-        if(this.state.correctAnswer == selectAnswer) {
+        if(this.state.correctAnswer == selectedAnswer) {
           console.log("It's correct")
         }else{
           console.log("It's not correct")
@@ -70,25 +70,33 @@ export default class QuizScreen extends React.Component {
   
           <View style={styles.answerComtainer}>
   
-              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+              <TouchableOpacity onPress={()=>{
+                this.checkAnswer(this.state.options[0])
+              }} style={styles.button}> 
                   <Text style={styles.answerText}>
                     {this.state.options[0]} 
                   </Text>
               </TouchableOpacity>
   
-              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+              <TouchableOpacity onPress={()=>{
+                this.checkAnswer(this.state.options[1])
+              }} style={styles.button}> 
                   <Text style={styles.answerText}>
                     {this.state.options[1]}
                   </Text>
               </TouchableOpacity>
   
-              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+              <TouchableOpacity onPress={()=>{
+                this.checkAnswer(this.state.options[2])
+              }} style={styles.button}> 
                   <Text style={styles.answerText}>
                   {this.state.options[2]}
                   </Text>
               </TouchableOpacity>
   
-              <TouchableOpacity onPress={()=>{}} style={styles.button}> 
+              <TouchableOpacity onPress={()=>{
+                this.checkAnswer(this.state.options[3])
+              }} style={styles.button}> 
                   <Text style={styles.answerText}>
                   {this.state.options[3]}
                   </Text>
