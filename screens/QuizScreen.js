@@ -48,7 +48,7 @@ export default class QuizScreen extends React.Component {
         if(this.state.correctAnswer == selectedAnswer) {
           console.log("It's correct")
 
-          const score = this.state.score
+          let score = this.state.score
           score+=1
           this.setState({
             score
@@ -58,8 +58,9 @@ export default class QuizScreen extends React.Component {
         }
 
         // change question
+        let currentQuestion = this.state.currentQuestion
         if(currentQuestion <= this.state.questions.length){
-          const currentQuestion = this.state.currentQuestion
+          
           currentQuestion += 1
 
           const options = resultJSON.results[currentQuestion].incorrect_answers;
