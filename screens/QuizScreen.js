@@ -62,9 +62,9 @@ export default class QuizScreen extends React.Component {
           const currentQuestion = this.state.currentQuestion
           currentQuestion += 1
 
-          const options = resultJSON.results[this.state.currentQuestion].incorrect_answers;
+          const options = resultJSON.results[currentQuestion].incorrect_answers;
 
-          const correctAnswer = resultJSON.results[this.state.currentQuestion].correct_answer;
+          const correctAnswer = resultJSON.results[currentQuestion].correct_answer;
 
           options.push(correctAnswer)
         }
