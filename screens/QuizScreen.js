@@ -56,6 +56,19 @@ export default class QuizScreen extends React.Component {
         }else{
           console.log("It's not correct")
         }
+
+        // change question
+        if(currentQuestion <= this.state.questions.length){
+          const currentQuestion = this.state.currentQuestion
+          currentQuestion += 1
+
+          const options = resultJSON.results[this.state.currentQuestion].incorrect_answers;
+
+          const correctAnswer = resultJSON.results[this.state.currentQuestion].correct_answer;
+
+          options.push(correctAnswer)
+        }
+        
     }
 
   render() {
