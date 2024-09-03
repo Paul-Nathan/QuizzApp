@@ -62,7 +62,7 @@ export default class QuizScreen extends React.Component {
   
               <TouchableOpacity onPress={()=>{}} style={styles.button}> 
                   <Text style={styles.answerText}>
-                    {this.state.options[0]}
+                    {this.state.options[0]} 
                   </Text>
               </TouchableOpacity>
   
@@ -83,7 +83,7 @@ export default class QuizScreen extends React.Component {
                   {this.state.options[3]}
                   </Text>
               </TouchableOpacity>
-  
+              
           </View>
           
         </ScrollView>
