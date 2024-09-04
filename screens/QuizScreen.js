@@ -44,7 +44,7 @@ export default class QuizScreen extends React.Component {
 
         })
         .catch(error=>console.log(error))
-        
+        ;
     }
 
     checkAnswer(selectedAnswer) {
