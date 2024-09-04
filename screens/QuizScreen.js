@@ -88,6 +88,7 @@ export default class QuizScreen extends React.Component {
             score: this.state.score
           })
 
+          
         }
         
     }
