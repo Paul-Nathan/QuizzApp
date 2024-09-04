@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 
 
+
+
 const apiURL = "https://opentdb.com/api.php?amount=10&category=18&type=multiple"
 
 export default class QuizScreen extends React.Component {
@@ -9,7 +11,7 @@ export default class QuizScreen extends React.Component {
     state ={
       currentQuestion: 0,
       isLoaded: false,
-      question: [],
+      questions: [],
       options: [],
       correctAnswer:"",
       score: 0
@@ -23,28 +25,36 @@ export default class QuizScreen extends React.Component {
         return fetch(apiURL)
         .then(result=>{
 
-            result.json().then(resultJSON=>{
-                //console.log(resultJSON)
+          result.json().then(resultJSON=>{
+            //console.log(resultJSON)
 
-                const options = resultJSON.results[this.state.currentQuestion].incorrect_answers;
+            const options = resultJSON.results[this.state.currentQuestion].incorrect_answers;
 
-                const correctAnswer = resultJSON.results[this.state.currentQuestion].correct_answer;
+            const correctAnswer = resultJSON.results[this.state.currentQuestion].correct_answer;
 
-                options.push(correctAnswer) 
+            options.push(correctAnswer) 
 
-                this.setState({
-                  isLoaded: true,
-                  question: resultJSON.results,
-                  options: options,
-                  correctAnswer: correctAnswer,
-                })
+            this.setState({
+              isLoaded: true,
+              questions: resultJSON.results,
+              options: options,
+              correctAnswer: correctAnswer,
+            })
             })
 
         })
         .catch(error=>console.log(error))
+        ;
     }
 
     checkAnswer(selectedAnswer) {
+
+
+
+      // change question
+      let currentQuestion = this.state.currentQuestion
+      currentQuestion += 1
+      if(currentQuestion < this.state.questions.length){
         if(this.state.correctAnswer == selectedAnswer) {
           console.log("It's correct")
 
@@ -57,15 +67,13 @@ export default class QuizScreen extends React.Component {
           console.log("It's not correct")
         }
 
-        // change question
-        let currentQuestion = this.state.currentQuestion
-        if(currentQuestion <= this.state.question.length){
-          
-          currentQuestion += 1
+            
 
-          const options = this.state.question[currentQuestion].incorrect_answers;
+          const options = this.state.questions[currentQuestion].incorrect_answers;
 
-          const correctAnswer = this.state.question[currentQuestion].correct_answer;
+          const correctAnswer = this.state.questions[currentQuestion].correct_answer;
+
+          options.push(correctAnswer)
 
           this.setState({
             currentQuestion,
@@ -73,8 +81,12 @@ export default class QuizScreen extends React.Component {
             correctAnswer
           })
 
-          options.push(correctAnswer)
+          
         }else {
+
+          this.props.navigation.navigate("ResultScreen", {
+            score: this.state.score
+          })
 
         }
         
@@ -90,14 +102,14 @@ export default class QuizScreen extends React.Component {
               <Text style={styles.question}>
   
                   Q. {
-                    this.state.question[this.state.currentQuestion].question
+                    this.state.questions[this.state.currentQuestion].question
                   }
   
               </Text>
   
           </View>
   
-          <View style={styles.answerComtainer}>
+          <View style={styles.answerContainer}>
   
               <TouchableOpacity onPress={()=>{
                 this.checkAnswer(this.state.options[0])
