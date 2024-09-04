@@ -13,7 +13,7 @@ export default class QuizScreen extends React.Component {
       isLoaded: false,
       questions: [],
       options: [],
-      correctAnswer:"",
+      correctAnswer:""
       score: 0
     }
 
