@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   answerContainer: {
     marginHorizontal: 20,
-    marginVertical: 11,
+    marginVertical: 10,
   },
   button: {
     backgroundColor:"#254c8a",
